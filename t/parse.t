@@ -6,24 +6,20 @@ use Test::More;
 use Math::ParseUnit::Parser qw/parse/;
 use Math::ParseUnit::Quantity;
 
+use File::chdir;
+
 use Data::Dumper;
 
-my @tests = (
-  # individual terms
-  ['-1.6e-19' => ['-1.6e-19', {}         ]],
-  ['C'        => ['1',        { C => 1 } ]],
-
-  # split value and unit
-  ['-1.6e-19 C' => ['-1.6e-19', { C => 1 } ]],
-
-  # handle different constructs for division
-  ['-9.8 kg m / s / s'      => [ '-9.8', { kg => 1, 'm' => 1, 's' => -2} ]],
-  ['-9.8 kg m / ( s ** 2 )' => [ '-9.8', { kg => 1, 'm' => 1, 's' => -2} ]],
-  ['-9.8 kg m / s ** 2'     => [ '-9.8', { kg => 1, 'm' => 1, 's' => -2} ]],
-);
+my @tests = do {
+  local $CWD;
+  push @CWD, 't';
+  do 'data.pl';
+};
 
 foreach my $test (@tests) {
-  my ($str, $spec) = @$test;
+  next unless @$test == 3;
+
+  my ($str, undef, $spec) = @$test;
 
   my $res = parse($str);
 
