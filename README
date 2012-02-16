@@ -1,0 +1,5 @@
+Math::ParseUnit is an experimental replacement for the unit recognizing and conversion engine used in MooseX::Types::NumUnit. It may just turn out to be a reason for learning Marpa or it may end up being used.
+
+The project is licensed under the same terms as Perl (Artistic and GPL).
+
+Copyright 2012 Joel Berger
