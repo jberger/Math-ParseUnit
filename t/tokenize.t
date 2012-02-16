@@ -76,12 +76,12 @@ my @tests = (
                       ['WORD'   , 's'  ]]
   ],
   ['-9.8 kg m / s / s' => [['NUMBER' , '-9.8'],
-                       ['WORD'   , 'kg'  ],
-                       ['WORD'   , 'm'   ],
-                       ['MULT_OP', '/'   ],
-                       ['WORD'   , 's'   ],
-                       ['MULT_OP', '/'   ],
-                       ['WORD'   , 's'   ]]
+                           ['WORD'   , 'kg'  ],
+                           ['WORD'   , 'm'   ],
+                           ['MULT_OP', '/'   ],
+                           ['WORD'   , 's'   ],
+                           ['MULT_OP', '/'   ],
+                           ['WORD'   , 's'   ]]
   ],
   ['-9.8 kg m / s ** 2' => [['NUMBER' , '-9.8'],
                             ['WORD'   , 'kg'  ],
