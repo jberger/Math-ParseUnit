@@ -39,7 +39,7 @@ foreach my $test (@tests) {
     "Properly parses $str",
   );
 
-  print STDERR Dumper \$quant;
+  #print STDERR Dumper \$quant;
 }
 
 
