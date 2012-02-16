@@ -1,4 +1,4 @@
-package Math::ParseUnit;
+package Math::ParseUnit::Parser;
 
 use strict;
 use warnings;
@@ -7,6 +7,9 @@ use Marpa::XS;
 use Data::Dumper;
 
 use Math::ParseUnit::Tokenizer qw/tokenize/;
+
+use parent 'Exporter';
+our @EXPORT_OK = qw/parse/;
 
 my $grammar = Marpa::XS::Grammar->new({
   start => 'EXPRESSION',

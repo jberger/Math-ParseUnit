@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More;
 
-use Math::ParseUnit;
+use Math::ParseUnit::Parser qw/parse/;
 use Math::ParseUnit::Quantity;
 
 use Data::Dumper;
@@ -20,7 +20,7 @@ my @tests = (
 foreach my $test (@tests) {
   my ($str, $spec) = @$test;
 
-  my $res = Math::ParseUnit::parse($str);
+  my $res = parse($str);
 
   my $num_res = scalar @$res;
   is( $num_res, 1, qq/Parse of "$str" produces one result/ );
