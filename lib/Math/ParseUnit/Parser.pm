@@ -119,14 +119,7 @@ sub mult_op {
   shift;
   my $ql = shift;
   while (@_) {
-    my ($op, $qr);# = (shift, shift);
-    if ($_[0] =~ m#\*|/#) {
-      $op = shift;
-    } else {
-      $op = '*';
-    }
-
-    $qr = shift;
+    my ($op, $qr) = (shift, shift);
 
     #print STDERR Dumper [$ql, $op, $qr];
 
