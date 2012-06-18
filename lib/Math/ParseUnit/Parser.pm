@@ -148,21 +148,11 @@ sub exp_op {
 
   #print STDERR Dumper [$quant, $op, $num];
 
-  #if ($num > 1) {
-    foreach my $unit (keys %{ $quant->{units} }) {
-      #print STDERR "$unit: $num\n";
-      $quant->{units}{$unit} *= $num;
-    }
-    $quant->{value} **= $num;
-  #} elsif ($num > 0) {
-  #  foreach my $unit (keys %{ $quant->{units} }) {
-  #    $quant->{units}{$unit} /= -$num;
-  #  }
-  #  $quant->{value} **= $num;
-  #} else {
-  #  $quant->{value} = 1;
-  #  $quant->{units} = {};
-  #}
+  foreach my $unit (keys %{ $quant->{units} }) {
+    #print STDERR "$unit: $num\n";
+    $quant->{units}{$unit} *= $num;
+  }
+  $quant->{value} **= $num;
 
   #print STDERR Dumper \$quant;
 
