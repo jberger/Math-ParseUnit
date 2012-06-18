@@ -123,15 +123,12 @@ sub mult_op {
 
     #print STDERR Dumper [$ql, $op, $qr];
 
-    my $is_mult = $op eq '*';
-
-    while ( my ($unit, $power) = each %{ $qr->{units} } ) {
-      $ql->{units}{$unit} += $is_mult ? $power : - $power;
+    if ( $op eq '*' ) {
+      $ql->mult($qr);
+    } else {
+      $ql->div($qr);
     }
 
-    if ($qr->{value}) {
-      $ql->{value} *= $is_mult ? $qr->{value} : ( 1 / $qr->{value} );
-    }
   }
 
   return $ql;
@@ -146,15 +143,7 @@ sub exp_op {
     $num = $op;
   }
 
-  #print STDERR Dumper [$quant, $op, $num];
-
-  foreach my $unit (keys %{ $quant->{units} }) {
-    #print STDERR "$unit: $num\n";
-    $quant->{units}{$unit} *= $num;
-  }
-  $quant->{value} **= $num;
-
-  #print STDERR Dumper \$quant;
+  $quant->pow($num);
 
   return $quant;
 }
